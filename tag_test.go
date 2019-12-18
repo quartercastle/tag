@@ -28,14 +28,14 @@ func ExampleMerge() {
 		"env": "HELLO",
 	}
 
-	tags := tag.Merge(t1, t2)
-	fmt.Println(tags)
+	t := tag.Merge(t1, t2)
+	fmt.Println(t)
 	// Output: map[env:HELLO]
 }
 
 func ExampleParse() {
-	tags, err := tag.Parse(`env:"SERVER_HOST" default:"localhost"`)
-	fmt.Println(tags, err)
+	t, err := tag.Parse(`env:"SERVER_HOST" default:"localhost"`)
+	fmt.Println(t, err)
 	// Output: map[default:localhost env:SERVER_HOST] <nil>
 }
 
@@ -47,14 +47,14 @@ func ExampleTag_StructTag() {
 }
 
 func TestParse(t *testing.T) {
-	tags, _ := tag.Parse(`env:"SERVER_HOST" default:"localhost"`)
+	tag, _ := tag.Parse(`env:"SERVER_HOST" default:"localhost"`)
 
-	if v, ok := tags["env"]; !ok || v != "SERVER_HOST" {
-		t.Errorf("the key env does not SERVER_HOST; got %s", v)
+	if v, ok := tag["env"]; !ok || v != "SERVER_HOST" {
+		t.Errorf("the key env is not equal to SERVER_HOST; got %s", v)
 	}
 
-	if v, ok := tags["default"]; !ok || v != "localhost" {
-		t.Errorf("the key default does not localhost; got %s", v)
+	if v, ok := tag["default"]; !ok || v != "localhost" {
+		t.Errorf("the key default is not equal to localhost; got %s", v)
 	}
 }
 
