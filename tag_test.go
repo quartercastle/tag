@@ -9,9 +9,14 @@ import (
 )
 
 func Example() {
-	tags, err := tag.Parse(`json:"host" env:"SERVER_HOST" default:"localhost"`)
-	fmt.Println(tags, err)
-	// Output: map[default:localhost env:SERVER_HOST json:host] <nil>
+	t, err := tag.Parse(`json:"host" env:"SERVER_HOST" default:"localhost"`)
+
+	if err != nil {
+		panic(err)
+	}
+
+	fmt.Println(t["env"])
+	// Output: SERVER_HOST
 }
 
 func ExampleMerge() {
