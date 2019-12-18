@@ -9,7 +9,7 @@
 The motivation behind this package is that the [`StructTag`](https://github.com/golang/go/blob/0377f061687771eddfe8de78d6c40e17d6b21a39/src/reflect/type.go#L1110)
 implementation shipped with Go's standard library is very limited in
 detecting a malformed StructTag and each time `StructTag.Get(key)` gets called,
-it results in the `StructTag` being parsed agian. Another problem is that the
+it results in the `StructTag` being parsed again. Another problem is that the
 `StructTag` can not be easily manipulated because it is basically a string.
 This package provides a way to parse the `StructTag` into a `Tag` map. This
 allows fast lookups and easy manipulation of the key value pairs within the

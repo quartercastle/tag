@@ -39,7 +39,7 @@ func ExampleParse() {
 	// Output: map[default:localhost env:SERVER_HOST] <nil>
 }
 
-func ExampleStructTag() {
+func ExampleTag_StructTag() {
 	t, _ := tag.Parse(`env:"SERVER_HOST"`)
 	st := t.StructTag()
 	fmt.Println(st)
@@ -86,7 +86,7 @@ func TestParseErrors(t *testing.T) {
 	}
 
 	_, err = tag.Parse(`key:"value", other:"value"`)
-	if err != tag.ErrInvalidSeperator {
-		t.Errorf("did not return error %s; got %s", tag.ErrInvalidSeperator, err)
+	if err != tag.ErrInvalidSeparator {
+		t.Errorf("did not return error %s; got %s", tag.ErrInvalidSeparator, err)
 	}
 }

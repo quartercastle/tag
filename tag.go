@@ -1,11 +1,11 @@
 // The motivation behind this package is that the StructTag implementation shipped
 // with Go's standard library is very limited in detecting a malformed StructTag
 // and each time StructTag.Get(key) gets called, it results in the StructTag
-// being parsed agian. Another problem is that the StructTag can not be
+// being parsed again. Another problem is that the StructTag can not be
 // easily manipulated because it is basically a string.
-// This package provides a way to parse the StructTag into a Tag, which
+// This package provides a way to parse the StructTag into a Tag map, which
 // allows for fast lookups and easy manipulation of key value pairs within the
-// a Tag.
+// Tag.
 //
 // 	// Example of struct using tags to append metadata to fields.
 // 	type Server struct {
@@ -26,14 +26,14 @@ var (
 	ErrInvalidSyntax    = errors.New("invalid syntax for key value pair")
 	ErrInvalidKey       = errors.New("invalid key")
 	ErrInvalidValue     = errors.New("invalid value, missing qoutes around value")
-	ErrInvalidSeperator = errors.New("invalid seperator, key value pairs should be seperated by spaces")
+	ErrInvalidSeparator = errors.New("invalid separator, key value pairs should be separated by spaces")
 )
 
 // Tag is just a map of key value pairs.
 type Tag map[string]string
 
 // Merge multiple tags together into a single Tag.
-// In case of duplicate keys, the last encountered key will overwrite the any existing.
+// In case of duplicate keys, the last encountered key will overwrite the existing.
 func Merge(tags ...Tag) Tag {
 	for _, t := range tags {
 		for k, v := range t {
@@ -54,8 +54,8 @@ func (t Tag) StructTag() reflect.StructTag {
 }
 
 // Parse takes a StructTag and parses it into a Tag or returns an error.
-// If the given string contains duplicate key value pairs the last pair
-// will overwrite the previous in the map.
+// If the given string contains duplicate keys the last key value pair
+// will overwrite the previous.
 //
 // The parsing logic is a slightly modified version of the StructTag.Lookup
 // function from the reflect package included in the standard library.
@@ -77,7 +77,7 @@ func Parse(st reflect.StructTag) (Tag, error) {
 		i = 0
 		for i < len(st) && st[i] > ' ' && st[i] != ':' && st[i] != '"' && st[i] != 0x7f {
 			if st[i] == ',' {
-				return tag, ErrInvalidSeperator
+				return tag, ErrInvalidSeparator
 			}
 			i++
 		}
