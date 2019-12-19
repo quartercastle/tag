@@ -23,9 +23,17 @@ import (
 )
 
 var (
-	ErrInvalidSyntax    = errors.New("invalid syntax for key value pair")
-	ErrInvalidKey       = errors.New("invalid key")
-	ErrInvalidValue     = errors.New("invalid value, missing qoutes around value")
+	// ErrInvalidSyntax is returned when the StructTag syntax is invalid.
+	ErrInvalidSyntax = errors.New("invalid syntax for key value pair")
+
+	// ErrInvalidKey is returned if a key is containing invalid characters or
+	// is missing.
+	ErrInvalidKey = errors.New("invalid key")
+
+	// ErrInvalidValue is returned if a value is not qouted.
+	ErrInvalidValue = errors.New("invalid value")
+
+	// ErrInvalidSeparator is returned if comma is used as separator.
 	ErrInvalidSeparator = errors.New("invalid separator, key value pairs should be separated by spaces")
 )
 

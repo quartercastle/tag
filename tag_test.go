@@ -64,12 +64,19 @@ func TestParseErrors(t *testing.T) {
 		t.Errorf("did not return error %s; got %s", tag.ErrInvalidSyntax, err)
 	}
 
-	_, err = tag.Parse(`:"value"`)
-	if err != tag.ErrInvalidKey {
-		t.Errorf("did not return error %s; got %s", tag.ErrInvalidKey, err)
+	cases := []reflect.StructTag{
+		`:value`,
+		`"":"value"`,
 	}
 
-	cases := []reflect.StructTag{
+	for _, c := range cases {
+		_, err = tag.Parse(c)
+		if err != tag.ErrInvalidKey {
+			t.Errorf("did not return error %s; got %s", tag.ErrInvalidKey, err)
+		}
+	}
+
+	cases = []reflect.StructTag{
 		`key:value`,
 		`key:value"`,
 		`key:"value`,
