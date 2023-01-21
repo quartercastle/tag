@@ -2,10 +2,10 @@
 
 > DEPRECATED: This project has been moved to [`github.com/quartercastle/structtag`](http://github.com/quartercastle/structtag)
 
-[![Version](https://img.shields.io/github/release/kvartborg/tag.svg)](https://github.com/kvartborg/tag/releases)
-[![Build Status](https://travis-ci.org/kvartborg/tag.svg?branch=master)](https://travis-ci.org/kvartborg/tag)
-[![GoDoc](https://godoc.org/github.com/kvartborg/tag?status.svg)](https://godoc.org/github.com/kvartborg/tag)
-[![Go Report Card](https://goreportcard.com/badge/github.com/kvartborg/tag)](https://goreportcard.com/report/github.com/kvartborg/tag)
+[![Version](https://img.shields.io/github/release/quartercastle/tag.svg)](https://github.com/quartercastle/tag/releases)
+[![Build Status](https://travis-ci.org/quartercastle/tag.svg?branch=master)](https://travis-ci.org/quartercastle/tag)
+[![GoDoc](https://godoc.org/github.com/quartercastle/tag?status.svg)](https://godoc.org/github.com/quartercastle/tag)
+[![Go Report Card](https://goreportcard.com/badge/github.com/quartercastle/tag)](https://goreportcard.com/report/github.com/quartercastle/tag)
 
 
 The motivation behind this package is that the [`StructTag`](https://github.com/golang/go/blob/0377f061687771eddfe8de78d6c40e17d6b21a39/src/reflect/type.go#L1110)
@@ -27,7 +27,7 @@ type Server struct {
 
 ### Install
 ```
-go get github.com/kvartborg/tag
+go get github.com/quartercastle/tag
 ```
 
 ### Usage
@@ -40,7 +40,7 @@ if err != nil {
 
 fmt.Println(t["json"])
 ```
-See [godoc](https://godoc.org/github.com/kvartborg/tag) for full documentation.
+See [godoc](https://godoc.org/github.com/quartercastle/tag) for full documentation.
 
 ### License
-This project is licensed under the [MIT License](https://github.com/kvartborg/tag/blob/master/LICENSE).
+This project is licensed under the [MIT License](https://github.com/quartercastle/tag/blob/master/LICENSE).
