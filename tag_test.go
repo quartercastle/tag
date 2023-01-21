@@ -5,7 +5,7 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/kvartborg/tag"
+	"github.com/quartercastle/tag"
 )
 
 func Example() {

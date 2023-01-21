@@ -7,6 +7,8 @@
 // allows for fast lookups and easy manipulation of key value pairs within the
 // Tag.
 //
+// Deprecated: This package has been moved to github.com/quartercastle/structtag
+//
 // 	// Example of struct using tags to append metadata to fields.
 // 	type Server struct {
 //		Host string `json:"host" env:"SERVER_HOST" default:"localhost"`

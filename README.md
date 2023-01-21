@@ -1,5 +1,7 @@
 # tag
 
+> DEPRECATED: This project has been moved to [`github.com/quartercastle/structtag`](http://github.com/quartercastle/structtag)
+
 [![Version](https://img.shields.io/github/release/kvartborg/tag.svg)](https://github.com/kvartborg/tag/releases)
 [![Build Status](https://travis-ci.org/kvartborg/tag.svg?branch=master)](https://travis-ci.org/kvartborg/tag)
 [![GoDoc](https://godoc.org/github.com/kvartborg/tag?status.svg)](https://godoc.org/github.com/kvartborg/tag)
